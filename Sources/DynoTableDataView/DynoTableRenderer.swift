@@ -156,7 +156,7 @@ extension DynoTableFrame {
                         
                         if drawSettings.allowRefresh {
                             Button(action: {
-                                dataLoader.load(forState: tableState)
+                                dataLoader.reload()
                             }) {
                                 Text("Refresh")
                             }}
@@ -194,7 +194,8 @@ private struct HeaderMenu<Frame:DynoTableFrame>: ViewModifier {
             }) {
                 Text("Unhide All")
             }
-            Button(action: { self.dataLoader.load(forState: self.tableState)
+            Button(action: {
+                self.dataLoader.reload()
             }) {
                 Text("Refresh")
             }
